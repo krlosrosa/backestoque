@@ -1,5 +1,5 @@
 export class CreateCountedDto {
-    id: number;
+    id?: number;
     data: string;
     endereco: string;
     lote?: string;
