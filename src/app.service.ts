@@ -12,4 +12,23 @@ export class AppService {
     if(response.count > 0) return true
     return false
   }
+
+  async buscarRegistros(data: string) {
+    const dados = await this.prisma.counted.findMany({
+      where:{
+        data: data
+      }
+    })
+    return dados
+  }
+
+  async deletarContagem(data: string) {
+    const deletar = await this.prisma.counted.deleteMany({
+      where: {
+        data: data,
+      },
+    });
+
+    return deletar;
+  }
 }
